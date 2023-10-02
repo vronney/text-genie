@@ -1,16 +1,21 @@
-require("dotenv").config();
+import { config } from "dotenv";
+config();
 
-const express = require("express");
+import express from "express";
 const app = express();
+
+import process from "process";
 const port = process.env.PORT || 3333;
 
-const bodyParser = require("body-parser");
+import pkg from "body-parser";
+const { json } = pkg;
 
-app.use(bodyParser.json());
+app.use(json());
 
-const { TextServiceClient } = require("@google-ai/generativelanguage").v1beta2;
+import { v1beta2 } from "@google-ai/generativelanguage";
+const { TextServiceClient } = v1beta2;
 
-const { GoogleAuth } = require("google-auth-library");
+import { GoogleAuth } from "google-auth-library";
 
 const MODEL_NAME = "models/text-bison-001";
 const API_KEY = process.env.API_KEY;
