@@ -1,20 +1,19 @@
 import { config } from "dotenv";
+import express from "express";
+import process from "process";
+import pkg from "body-parser";
+import { v1beta2 } from "@google-ai/generativelanguage";
+import { GoogleAuth } from "google-auth-library";
+
 config();
 
-import express from "express";
 const app = express();
 
-import process from "process";
-
-import pkg from "body-parser";
 const { json } = pkg;
 
 app.use(json());
 
-import { v1beta2 } from "@google-ai/generativelanguage";
 const { TextServiceClient } = v1beta2;
-
-import { GoogleAuth } from "google-auth-library";
 
 const MODEL_NAME = "models/text-bison-001";
 const API_KEY = process.env.API_KEY;
