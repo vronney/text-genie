@@ -2,6 +2,8 @@ import { v1beta2 } from "@google-ai/generativelanguage";
 import { GoogleAuth } from "google-auth-library";
 import { config } from "dotenv";
 import process from "process";
+import bodyParser from "body-parser";
+import app from ".";
 
 config();
 
@@ -15,6 +17,9 @@ const client = new TextServiceClient({
 });
 
 export default async (req, res) => {
+  app.use(bodyParser.urlencoded({ extended: true }));
+  app.use(bodyParser.json());
+
   if (req.method === "POST") {
     const prompt = req.body.prompt;
 

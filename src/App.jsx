@@ -55,7 +55,9 @@ function App() {
       }}
     >
       <h1 style={{ padding: "10px", marginBottom: "0px" }}>Text Genie</h1>
-      <div style={{ margin: "0", flexGrow: "1", overflow: "auto" }}>
+      <div
+        style={{ margin: "0", flexGrow: "1", overflow: "auto", height: "75vh" }}
+      >
         <div style={{ width: "100%", height: "auto" }}>
           {isLoading ? (
             <img src={loader} alt="loading" />
