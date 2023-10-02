@@ -5,7 +5,6 @@ import express from "express";
 const app = express();
 
 import process from "process";
-const port = process.env.PORT || 3333;
 
 import pkg from "body-parser";
 const { json } = pkg;
@@ -48,6 +47,4 @@ app.post("/api", (req, res) => {
     });
 });
 
-app.listen(port, () => {
-  console.log(`App listening at http://localhost:${port}`);
-});
+export default app;
